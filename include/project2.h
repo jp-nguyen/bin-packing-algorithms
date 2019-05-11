@@ -2,17 +2,18 @@
 #define PROJECT2_H
 
 #include <vector>
+using namespace std;
 
 // implement in next_fit.cpp
-void next_fit(const std::vector<double>& items, std::vector<int>& assignment, std::vector<double>& free_space);
+void next_fit(const vector<double>& items, vector<int>& assignment, vector<double>& free_space);
 
-//implement in first_fit.cpp
-void first_fit(const std::vector<double>& items, std::vector<int>& assignment, std::vector<double>& free_space);
-void first_fit_decreasing(const std::vector<double>& items, std::vector<int>& assignment, std::vector<double>& free_space);
+// implement in first_fit.cpp
+void first_fit(const vector<double>& items, vector<int>& assignment, vector<double>& free_space);
+void first_fit_decreasing(const vector<double>& items, vector<int>& assignment, vector<double>& free_space);
 
 // implement in best_fit.cpp
-void best_fit(const std::vector<double>& items, std::vector<int>& assignment, std::vector<double>& free_space);
-void best_fit_decreasing(const std::vector<double>& items, std::vector<int>& assignment, std::vector<double>& free_space);
+void best_fit(const vector<double>& items, vector<int>& assignment, vector<double>& free_space);
+void best_fit_decreasing(const vector<double>& items, vector<int>& assignment, vector<double>& free_space);
 
 /* 
  * for all functions
@@ -27,10 +28,10 @@ void best_fit_decreasing(const std::vector<double>& items, std::vector<int>& ass
  *                  when the function returns, this should indicate the final free space available in each bin.
  *
  * example usage:
- *      std::vector<double> items; 
+ *      vector<double> items; 
  *      ...populate items...
- *      std::vector<int> assignment(items.size(), 0); // same size as items, all values are 0
- *      std::vector<double> free_space; // empty double vector
+ *      vector<int> assignment(items.size(), 0); // same size as items, all values are 0
+ *      vector<double> free_space; // empty double vector
  *      next_fit(items, assignment, free_space); 
  *      // at this point, 
  *      //      assignment should hold the assignment next_fit makes,
