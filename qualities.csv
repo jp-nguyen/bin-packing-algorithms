@@ -1,0 +1,26 @@
+algorithm,n,waste
+next fit,10,1.97047
+next fit,100,15.7686
+next fit,1000,171.736
+next fit,10000,1710.79
+next fit,100000,16934.5
+first fit,10,1.24093
+first fit,100,6.32977
+first fit,1000,30.2961
+first fit,10000,152.647
+first fit,100000,737.907
+first fit decreasing,10,1.70918
+first fit decreasing,100,4.56969
+first fit decreasing,1000,8.25961
+first fit decreasing,10000,35.135
+first fit decreasing,100000,115.582
+best fit,10,1.1335
+best fit,100,4.95922
+best fit,1000,25.384
+best fit,10000,92.2605
+best fit,100000,399.946
+best fit decreasing,10,0.83681
+best fit decreasing,100,3.22948
+best fit decreasing,1000,10.2463
+best fit decreasing,10000,23.4684
+best fit decreasing,100000,70.0646
