@@ -32,8 +32,10 @@ double randdouble() {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     mt19937 gen(seed);
     uniform_real_distribution<double> range(0.0, 1.0);
+    double d;
 
-    return range(gen);
+    while ((d = range(gen)) == 0.0 || d == 1.0);
+    return d; 
 }
 
 void generate_items(vector<double>& items, int n) {

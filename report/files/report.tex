@@ -13,7 +13,7 @@
 
 \linespread{1.1}
 
-\title{Project One: Testing Running Times}
+\title{Project Two: Testing Solution Quality}
 
 \author{Jean-Paul Nguyen}
 \date{May 17, 2019}
@@ -26,13 +26,46 @@
 
 \section{Introduction}
 \subsection{Purpose}
-    The purpose of this project is to...
+    The purpose of this project is to examine and measure the performance of
+    different bin packing algorithms by experimentally determining the quality 
+    of solutions that the algorithms produce. This quality is determined by
+    the waste $W(A)$ of a bin-packing algorithm $A$, which is defined as the 
+    following:
+    \begin{center}
+        \textit{The number of bins used by algorithm $A$ minus the total sum of 
+        all items in the given list.}
+    \end{center}
+    These will go over different algorithms to solve the bin-packing problem,
+    using the observed waste for each algorithm to determine which is the most
+    effective algorithm for this problem.
 \subsection{Experimental Setup}
 \subsection{Outline}
+    The paper will delve into the following algorithms:
+    \begin{enumerate}
+        \item Next Fit (NF)
+        \item First Fit (FF) and First Fit Decreasing (FFD)
+        \item Best Fit (BF) and Best Fit Decreasing (BFD)
+    \end{enumerate}
+    \noindent The implementation and measure of performance of each algorithm 
+    will be done, with FF and BF having counterparts with modifications on the 
+    input to be compared to. Finally, the analysis will be done, with a verdict
+    on which algorithm is the best for the bin-packing problem at the end.
 
-\section{...}
+\section{Next Fit}
 \subsection{Implementation}
 \subsection{Performance}
 \subsection{Analysis}
+
+\section{First Fit and First Fit Decreasing}
+\subsection{Implementation}
+\subsection{Performance}
+\subsection{Analysis}
+
+\section{Best Fit and Best Fit Decreasing}
+\subsection{Implementation}
+\subsection{Performance}
+\subsection{Analysis}
+
+\section{Conclusion}
 
 \end{document}
