@@ -3,7 +3,7 @@
 using namespace std;
 typedef void (*algorithm)(const vector<double>&, vector<int>&, vector<double>&); 
 
-string filename = "wait.csv";
+string filename = "qualities.csv";
 
 double run_bin_packing_algorithm(algorithm a, int n) {
     vector<double> items;

@@ -1,0 +1,11 @@
+algorithm,n,waste
+first fit,10,1.38467
+first fit,100,5.77838
+first fit,1000,32.2867
+first fit,10000,145.632
+first fit,100000,748.636
+first fit decreasing,10,1.48967
+first fit decreasing,100,4.03975
+first fit decreasing,1000,13.3861
+first fit decreasing,10000,29.9484
+first fit decreasing,100000,103.234

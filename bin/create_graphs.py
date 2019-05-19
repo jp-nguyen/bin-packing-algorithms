@@ -1,15 +1,18 @@
+import matplotlib
+matplotlib.use("Tkagg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.interpolate as ip
 import sys
 
+
 def set_up_plot(ax, title):
     ax.set_title(title)
     ax.set_xlabel("Log of Size $n$")
     ax.set_ylabel("Log of Waste $W(n)$")
-    ax.set_xticklabels(ax.get_xticks(), fontsize= 5)
-    ax.set_yticklabels(ax.get_yticks(), fontsize= 5)
+    ax.set_xticklabels(ax.get_xticks(), fontsize= 10)
+    ax.set_yticklabels(ax.get_yticks(), fontsize= 10)
     ax.legend()
 
 def get_line(x, y):
@@ -26,6 +29,26 @@ def get_data_from_file(filename):
     y = qualities['waste'].values
 
     return algorithms, x, y
+
+def get_lines_from_file(filename):
+    algorithms, x, y = get_data_from_file(filename)
+
+    slopes = [None] * len(np.unique(algorithms))
+    intercepts = [None] * len(np.unique(algorithms))
+
+    for i, alg in enumerate(np.unique(algorithms)):
+        mask = np.where(algorithms == alg)[0]
+        m, b = get_line(x[mask], y[mask])
+        slopes[i], intercepts[i] = round(m, 4), round(b, 4)
+
+    df = pd.DataFrame(
+        {
+            'algorithm': np.unique(algorithms),
+            'slope': slopes,
+        }
+    )
+    df.to_csv("all-lines.csv", 
+              index = False)
 
 def plot_all_qualities(filename, algs, points, lines, outfile=""):
     algorithms, x, y = get_data_from_file(filename)
@@ -46,15 +69,11 @@ def plot_all_qualities(filename, algs, points, lines, outfile=""):
 
         if (lines):
             m, b = get_line(x[mask], y[mask])
-            if (points):
-                ax.loglog(x[mask], np.power(x[mask], m) * 10 ** b, "r", 
-                          c = colors[i])
-            else:
-                ax.loglog(x[mask], np.power(x[mask], m) * 10 ** b, "r", 
-                          c = colors[i], 
-                label = '$W(n) = n^{{ {} }} \\cdot 10^{{ {} }}$'.format(m, b))
-    
-    set_up_plot(ax, "Comparison of Bin Packing Algorithms")
+            ax.loglog(x[mask], np.power(x[mask], m) * 10 ** b, "r", 
+                        c = colors[i],
+            label = '$\\log{{W(n)}} = {}\\cdot \\log{{n}} + {}$'.format(round(m, 4), round(b, 4)))
+
+    set_up_plot(ax, "Best Fit Bin Packing Measurements")
     ax.legend()
     
     if (outfile != ""):
@@ -70,8 +89,9 @@ if __name__ == "__main__":
 
     plot_all_qualities(sys.argv[1], [
 #        'next fit', 
-        'first fit', 
-        'first fit decreasing',
-#        'best fit', 
-#        'best fit decreasing',
-        ], True, True) #, "all-qualities.png")
+#        'first fit', 
+#        'first fit decreasing',
+        'best fit', 
+        'best fit decreasing',
+        ], True, True, "best-fit.png")
+#    get_lines_from_file(sys.argv[1])
