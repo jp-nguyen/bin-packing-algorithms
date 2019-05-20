@@ -117,14 +117,14 @@
     \nextblurb
     With regards to NF, we have the linear regression equation 
     \begin{align*}
-        \log{W(NF)} = 0.9933 \cdot \log{n} - 0.7372 \\
-        W(NF) = n^{0.993} \cdot 10^{-0.7372} \\
-        \therefore \boxed{W(NF) = O\left( n^{0.9933} \right)}
+        \log{W(NF)} = 0.9819 \cdot \log{n} - 0.6982 \\
+        W(NF) = n^{0.9819} \cdot 10^{-0.6982} \\
+        \therefore \boxed{W(NF) = O\left( n^{0.9819} \right)}
     \end{align*}
     \noindent We can see that as $n$ grows, $W(NF)$ also grows at a close to
     linear rate, which is not really optimal since waste can grow really large.
     Nevertheless, NF acts as a good baseline for FF and BF to later improve on,
-    in particular to have a slope $m$ that is smaller than $0.9933$.
+    in particular to have a slope $m$ that is smaller than $0.9819$.
 \section{First Fit and First Fit Decreasing}
 \subsection{Implementation}
     FF is an optimization of NF that starts from the \textit{first} created bin
@@ -161,8 +161,8 @@
     Like NF, both FF and FFD have linear relationships that are represented by 
     the linear regressions of the $\log$'s, which have slopes that we can 
     analyze. Using our relationship of $n$ and $W(a)$ from before, we know that
-    the complexity of $W(FF) = O\left( n^{0.6867} \right)$ and the complexity of 
-    $W(FFD) = O\left( n^{0.4551} \right)$. These slopes are less than $1$, which
+    the complexity of $W(FF) = O\left( n^{0.704} \right)$ and the complexity of 
+    $W(FFD) = O\left( n^{0.425} \right)$. These slopes are less than $1$, which
     indicate that the waste of FF grows at a smaller rate compared to NF. This 
     means that less waste is generated in comparison to NF as size grows, and 
     this is more optimal since we are aiming to have less waste. As such, we can
@@ -204,8 +204,8 @@
     Both BF and BFD have linear relationships based on the linear regressions of
     the $\log$'s, just like the previous algorithms. Using the relationship of
     $n$ and $W(a)$, we get that the complexity of 
-    $W(BF) = O\left( n^{0.6222} \right)$ and the complexity of
-    $W(BFD) = O\left( n^{0.4653} \right)$. These are clearly improvements over
+    $W(BF) = O\left( n^{0.6232} \right)$ and the complexity of
+    $W(BFD) = O\left( n^{0.4717} \right)$. These are clearly improvements over
     the baseline NF, and just like with FF and FFD, the decreasing version does 
     more optimal with the smaller slope. This strengthens the idea that the
     order of which the items are inserted into the bins can greatly affect the
@@ -262,12 +262,13 @@
     performed better than the other algorithms, with NF being the least-optimal 
     in the average waste measured. With the slopes gathered from the data 
     collected, we can say that FFD is, in practice, the best algorithm for the 
-    bin-packing problem. However, the $0.01$ difference may indicate that there 
-    was not enough data to confirm this answer; there may have been outliers 
-    that affected the slopes of FFD and BFD, and the actual slopes of the linear 
-    regressions may change as the size gets bigger. With more time and a faster 
-    computer, I would increase the $limit$ to larger numbers; this can confirm 
-    whether BFD eventually outgrows FFD or if BFD stays smaller than FFD.
+    bin-packing problem. However, the small difference of slopes may indicate 
+    that there was not enough data to confirm this answer; there could be
+    outliers that affected the slopes of FFD and BFD, and the actual slopes of 
+    the linear regressions may change as the size gets bigger. With more time 
+    and a faster computer, I would increase the $limit$ to larger numbers; this 
+    can confirm whether BFD eventually outgrows FFD or if BFD stays smaller than 
+    FFD.
     \nextblurb
     Nevertheless, it is clear that sorted, decreasing input works with the
     heuristics of FF and BF to get smaller and more optimal wastes as sizes get
