@@ -73,7 +73,7 @@ def plot_all_qualities(filename, algs, points, lines, outfile=""):
                         c = colors[i],
             label = '$\\log{{W(n)}} = {}\\cdot \\log{{n}} + {}$'.format(round(m, 4), round(b, 4)))
 
-    set_up_plot(ax, "Best Fit Bin Packing Measurements")
+    set_up_plot(ax, "Comparison of Bin Packing Algorithms")
     ax.legend()
     
     if (outfile != ""):
@@ -88,10 +88,10 @@ if __name__ == "__main__":
     assert argc == 2, "program only accepts one file"
 
     plot_all_qualities(sys.argv[1], [
-#        'next fit', 
-#        'first fit', 
-#        'first fit decreasing',
+        'next fit', 
+        'first fit', 
+        'first fit decreasing',
         'best fit', 
         'best fit decreasing',
-        ], True, True, "best-fit.png")
-#    get_lines_from_file(sys.argv[1])
+        ], False, True, "all-lines.png")
+    #get_lines_from_file(sys.argv[1])

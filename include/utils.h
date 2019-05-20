@@ -26,7 +26,7 @@ struct original {
     int index;
 };
 
-struct{
+struct {
     bool operator()(original a, original b) const {
         return a.value > b.value;
     }

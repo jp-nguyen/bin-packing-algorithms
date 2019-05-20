@@ -1,6 +1,7 @@
 #include "project2.h"
 #include "utils.h"
 
+/*
 void best_fit(const vector<double>& items, vector<int>& assignment, vector<double>& free_space) {
     int n = items.size();
     int count = 0;
@@ -19,8 +20,8 @@ void best_fit(const vector<double>& items, vector<int>& assignment, vector<doubl
         }
         
         if (min >= 1.1) {
-            free_space.push_back(1 - items[i]);
-            bi = count++;
+            free_space.push_back(1.0 - items[i]);
+            bi = ++count;
         } else {
             free_space[bi] -= items[i];
         }
@@ -49,11 +50,12 @@ void best_fit_decreasing(const vector<double>& items, vector<int>& assignment, v
         }
         
         if (min >= 1.1) {
-            free_space.push_back(1 - sorted_items[i].value);
-            bi = count++;
+            free_space.push_back(1.0 - sorted_items[i].value);
+            bi = ++count;
         } else {
             free_space[bi] -= sorted_items[i].value;
         }
         assignment[sorted_items[i].index] = bi;
     }
 }
+*/

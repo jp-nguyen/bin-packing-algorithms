@@ -6,7 +6,6 @@ void first_fit(const vector<double>& items, vector<int>& assignment, vector<doub
     int count = 0;
     int j;
     
-    free_space.push_back(1.0);
     for (int i = 0; i < n; ++i) {
         for (j = 0; j < count; ++j) {
             if (items[i] <= free_space[j]) {
@@ -16,7 +15,7 @@ void first_fit(const vector<double>& items, vector<int>& assignment, vector<doub
         }
         
         if (j >= count) {
-            free_space.push_back(1.0 - items[i]);
+            free_space.push_back(1 - items[i]);
             ++count;
         }
         assignment[i] = j;
@@ -30,7 +29,6 @@ void first_fit_decreasing(const vector<double>& items, vector<int>& assignment, 
     int count = 0;
     int j;
 
-    free_space.push_back(1.0);
     for (int i = 0; i < n; ++i) {
         for (j = 0; j < count; ++j) {
             if (sorted_items[i].value <= free_space[j]) {

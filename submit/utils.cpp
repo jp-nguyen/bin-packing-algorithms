@@ -43,11 +43,39 @@ void generate_items(vector<double>& items, int n) {
         items.push_back(randdouble());
 }
 
+void generate_test_items(vector<double>& items) {
+    items.push_back(.2);
+    items.push_back(.5);
+    items.push_back(.4);
+    items.push_back(.7);
+    items.push_back(.1);
+    items.push_back(.3);
+    items.push_back(.8);
+}
+
 void print_items(const vector<double>& items) {
     int n = items.size();
     for (int i = 0; i < n; ++i)
         cout << items[i] << endl;
     cout << "-------" << endl;
+}
+
+void print_results(const vector<double>& items, const vector<int>& assignment, const vector<double>& free_space) {
+    int n = items.size();
+    int bins = free_space.size();
+
+    cout << "Item Assignments" << endl;
+    cout << "--------------------" << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << "Item " << items[i] << " assigned to bin " << assignment[i] << endl;
+    }
+
+    cout << "--------------------" << endl;
+    cout << "Bin Free Space" << endl;
+    cout << "--------------------" << endl;
+    for (int b = 0; b < bins; ++b) {
+        cout << "Bin " << b << ": " << free_space[b] << " left" << endl;
+    }
 }
 
 double sum(const vector<double>& items) {

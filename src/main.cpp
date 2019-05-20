@@ -3,18 +3,31 @@
 using namespace std;
 typedef void (*algorithm)(const vector<double>&, vector<int>&, vector<double>&); 
 
-string filename = "wait.csv";
+string filename = "qualities.csv";
 
 double run_bin_packing_algorithm(algorithm a, int n) {
     vector<double> items;
     generate_items(items, n);
-
     vector<int> assignment(items.size(), 0);
     vector<double> free_space;
 
     (*a)(items, assignment, free_space);
 
     return free_space.size() - sum(items);
+}
+
+void test_bin_packing_algorithm(algorithm a, string alg) {
+    vector<double> items;
+    generate_test_items(items);
+    vector<int> assignment(items.size(), 0);
+    vector<double> free_space;
+
+    (*a)(items, assignment, free_space);
+
+    cout << "...testing correctness of " << alg <<  "..." << endl;
+    cout << "--------------------" << endl;
+    print_results(items, assignment, free_space);
+    cout << "--------------------" << endl;
 }
 
 void get_qualities(algorithm a, string alg, int reps, int limit) {
@@ -48,6 +61,14 @@ int main() {
     get_qualities(&first_fit_decreasing, "first fit decreasing", reps, limit);
     get_qualities(&best_fit, "best fit", reps, limit);
     get_qualities(&best_fit_decreasing, "best fit decreasing", reps, limit);
+
+/*
+    test_bin_packing_algorithm(&next_fit, "next fit");
+    test_bin_packing_algorithm(&first_fit, "first fit");
+    test_bin_packing_algorithm(&first_fit_decreasing, "first fit decreasing");
+    test_bin_packing_algorithm(&best_fit, "best fit");
+    test_bin_packing_algorithm(&best_fit_decreasing, "best fit decreasing");
+*/
 
     return 0;
 }
