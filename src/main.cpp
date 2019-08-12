@@ -62,13 +62,5 @@ int main() {
     get_qualities(&best_fit, "best fit", reps, limit);
     get_qualities(&best_fit_decreasing, "best fit decreasing", reps, limit);
 
-/*
-    test_bin_packing_algorithm(&next_fit, "next fit");
-    test_bin_packing_algorithm(&first_fit, "first fit");
-    test_bin_packing_algorithm(&first_fit_decreasing, "first fit decreasing");
-    test_bin_packing_algorithm(&best_fit, "best fit");
-    test_bin_packing_algorithm(&best_fit_decreasing, "best fit decreasing");
-*/
-
     return 0;
 }
